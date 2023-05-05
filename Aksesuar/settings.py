@@ -28,7 +28,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['localhost','aksesuar.herokuapp.com']
 
-
+ALLOWED_HOSTS = ['*']
+CORS_ALLOW_HEADERS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
@@ -55,7 +56,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+   "whitenoise.middleware.WhiteNoiseMiddleware", 
 ]
 
 ROOT_URLCONF = 'Aksesuar.urls'
