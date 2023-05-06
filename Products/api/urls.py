@@ -1,12 +1,12 @@
-from django.urls import path
-from .views import AksesuarListCreateView,ProductListCreateView,AksesuarDetailView,ProductDetailView 
+from django.urls import path, include
+from rest_framework import routers
+from .views import AksesuarViewSet, ProductsViewSet, CashTypeCreateViewSet
 
+router = routers.DefaultRouter()
+router.register('aksesuar', AksesuarViewSet)
+router.register('product', ProductsViewSet)
+router.register('cash-type', CashTypeCreateViewSet) # Yeni eşleştirme
 
 urlpatterns = [
-    
-    path('aksesuar/', AksesuarListCreateView.as_view(),name="aksesuar_list_create" ),
-    path('product/', ProductListCreateView.as_view(), name="product_list_create"),
-    path('aksesuar/<int:id>', AksesuarDetailView.as_view(), name="aksesuar_detail"),
-    path('product/<int:id>', ProductDetailView.as_view(), name="product_detail"),
-    
+    path('', include(router.urls)),
 ]
